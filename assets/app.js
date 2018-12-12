@@ -18,14 +18,14 @@ $(document).ready(function () {
             newBtn.attr("data-name", topics[i]);
             newBtn.text(topics[i]);
             $('#buttons').append(newBtn);
-            
+
         }
     };
 
     // On click button function to display gifs
 
-    $(":button").on("click", function () {
-
+    $(document).on("click", ".btn-dark", function () {
+        console.log("click");
         var gifData = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
             gifData + "&api_key=kZm5kNYwT7ITf3OJuAtjyt6jeIb6MJkk&limit=10";
@@ -34,7 +34,7 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
 
-        }).then(function(response) {
+        }).then(function (response) {
             var results = response.data;
 
             for (var i = 0; i < results.length; i++) {
@@ -54,8 +54,37 @@ $(document).ready(function () {
 
         })
         console.log(response);
+        console.log("click");
 
     })
+
+    // Add each search item to the topics array
+
+    $(document).on("click", "#add-gif", function (event) {
+        event.preventDefault();
+
+        var addSearchToArray = $("#gif-input").val().trim();
+        topics.push(addSearchToArray);
+
+        console.log(topics);
+
+        var newSearchItem = $("<button>").addClass("btn btn-dark");
+        newSearchItem.text(addSearchToArray);
+        $("#buttons").append(newSearchItem);
+
+    })
+
+    // make each array item into a button and append that to the buttons div
+    function addSearchItem() {
+        for (i = 0; i < topics.length; i++) {
+            var newSearchItem = $("<button>").addClass("btn btn-dark");
+            newSearchItem.text(topics[i]);
+            $("#buttons").append(newSearchItem);
+        }
+    }
+
+
+
 
     // Calling the creatBtn function to display the intial buttons
     createBtn();

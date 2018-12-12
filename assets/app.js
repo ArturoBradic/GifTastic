@@ -68,7 +68,7 @@ $(document).ready(function () {
 
         console.log(topics);
 
-        var newSearchItem = $("<button>").addClass("btn btn-dark");
+        var newSearchItem = $("<button>").addClass("btn btn-dark").attr("data-name", addSearchToArray);
         newSearchItem.text(addSearchToArray);
         $("#buttons").append(newSearchItem);
 
@@ -77,7 +77,7 @@ $(document).ready(function () {
     // make each array item into a button and append that to the buttons div
     function addSearchItem() {
         for (i = 0; i < topics.length; i++) {
-            var newSearchItem = $("<button>").addClass("btn btn-dark");
+            var newSearchItem = $("<button>").addClass("btn btn-dark").attr("data-name", addSearchToArray);
             newSearchItem.text(topics[i]);
             $("#buttons").append(newSearchItem);
         }

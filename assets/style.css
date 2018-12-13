@@ -1,11 +1,65 @@
+body {
+    background-color: white;
+}
+
 #menu-bar {
-    background-color: red;
+    background-color: #95cb42;
+    height: 100vh;
 }
 
 #topic-name {
     background-color: blue;
+    height: 100vh;
 }
 
 #display {
     background-color: yellow;
+   
 }
+
+#film-reel {
+    width: 200px;
+    
+}
+#inner-container {
+    position: relative;
+}
+.display-4 {
+    
+    position: absolute; 
+    bottom: 0;
+}
+
+.jumbotron-fluid {
+    margin: 0;
+    padding: 10px;
+  
+}
+
+.btn-dark {
+    margin: 3px;
+}
+
+#menu-display {
+    height: 500px;
+}
+
+.text-center {
+    color: white;
+    padding: 0;
+}s
+
+#giphy {
+    padding: 0;
+}
+
+/* #display img  {
+    display: inline;
+    float: left;
+    margin: 5px;
+}
+
+#display p  {
+    display: inline;
+    float: left;
+} */

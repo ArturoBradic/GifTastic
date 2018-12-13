@@ -20,47 +20,60 @@
 
     <link rel="stylesheet" type="text/css" href="assets/style.css">
     <script type="text/javascript" src="assets/app.js"></script>
-    
+
 
 
 </head>
 
 <body>
-
+    <div class="jumbotron jumbotron-fluid">
+        <div id="inner-container" class="container">
+            <h1 class="display-4">Movie GifTastic</h1>
+            <img id="film-reel" src='assets/images/filmReel.gif'>
+        </div>
+        <div class="container">
+            <hr class="my-4">
+            <p>You know the movies. We have the gifs.</p>
+        </div>
+    </div>
+    </div>
     <div class="container-fluid">
-        <div class="row">
+        <div id="menu-display" class="row">
             <div id="menu-bar" class="col-sm-2">
                 <p>Menu</p>
 
                 <br>
-                
-                <div id="search-bar">
-                <form id="gif-form">
-                    <label for="gif-input"></label>
-                    <input type="text" id="gif-input"><br><br>
 
-                    <!-- Button triggers new gif to be added -->
-                    <input id="add-gif" type="submit" value="Search" class="btn btn-primary">
-                </form>
+                <div id="search-bar">
+                    <form id="gif-form">
+                        <label for="gif-input"></label>
+                        <input type="text" id="gif-input" placeholder="Search"><br><br>
+
+                        <!-- Button triggers new gif to be added -->
+                        <input id="add-gif" type="submit" value="Add a Movie" class="btn btn-primary">
+                    </form>
                 </div>
 
 
                 <br>
 
                 <div id="buttons"></div>
-                
-                
+
+
 
             </div>
             <div id="topic-name" class="col-xl">
                 topic name
 
+
                 <div id="display">
                     display
                 </div>
+
             </div>
 
         </div>
+
 
 
 
@@ -74,10 +87,11 @@
             <footer class="footer bg-dark">
                 <div class="text-center pt-2">
                     <span>&copy; 2018 Arturo Bradic</span>
+                    <img id="giphy" src="assets/images/giphy.gif">
                 </div>
             </footer>
         </div>
 
-</body>
+</body>s
 
 </html>

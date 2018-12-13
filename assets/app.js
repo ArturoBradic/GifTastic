@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     // VARIABLES
 
-    var topics = ["V for Vendetta", "Shape of Water", "Boyhood"];
+    var topics = ["Pan's Labyrinth","It", "Interstellar", "The Shape of Water", "Pulp Fiction", "Amelie", "Princess Mononoke", "I, Tonya", "Shrek"];
     console.log(topics);
 
 
@@ -24,53 +24,64 @@ $(document).ready(function () {
 
     // On click button function to display gifs
 
-    $(document).on("click", ".btn-dark", function () {
+    $(document).on("click", ".btn-dark", function buttonOnclick() {
         console.log("click");
+
         var gifData = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
             gifData + "&api_key=kZm5kNYwT7ITf3OJuAtjyt6jeIb6MJkk&limit=10";
+        
 
         $.ajax({
             url: queryURL,
             method: "GET"
 
         }).then(function (response) {
+            var stillAttr = "_s";
             var results = response.data;
 
             for (var i = 0; i < results.length; i++) {
                 var gifDiv = $("<div>");
+                gifDiv.addClass("float-left");
                 var rating = results[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
-
                 var image = $("<img>");
-                image.attr("src", results[i].images.fixed_height.url);
-
+                var addTitle = $("<p>").text(gifData);
+                image.attr("src", results[i].images.fixed_height_still.url).attr("data-still", results[i].images.fixed_height_still.url).attr("data-animate", results[i].images.fixed_height.url);
+                
                 gifDiv.append(p);
                 gifDiv.append(image);
 
+                // $("#topic-name").append(addTitle);
+
                 $("#display").prepend(gifDiv);
+                
             }
 
-
         })
+
+
         console.log(response);
         console.log("click");
 
     })
+    
 
-    // Add each search item to the topics array
+ 
 
     $(document).on("click", "#add-gif", function (event) {
         event.preventDefault();
 
         var addSearchToArray = $("#gif-input").val().trim();
-        topics.push(addSearchToArray);
+        topics.unshift(addSearchToArray);
 
         console.log(topics);
 
         var newSearchItem = $("<button>").addClass("btn btn-dark").attr("data-name", addSearchToArray);
         newSearchItem.text(addSearchToArray);
-        $("#buttons").append(newSearchItem);
+        $("#buttons").prepend(newSearchItem);
+
+        
 
     })
 
@@ -79,12 +90,9 @@ $(document).ready(function () {
         for (i = 0; i < topics.length; i++) {
             var newSearchItem = $("<button>").addClass("btn btn-dark").attr("data-name", addSearchToArray);
             newSearchItem.text(topics[i]);
-            $("#buttons").append(newSearchItem);
+            $("#buttons").prepend(newSearchItem);
         }
     }
-
-
-
 
     // Calling the creatBtn function to display the intial buttons
     createBtn();

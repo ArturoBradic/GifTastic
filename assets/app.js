@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     // VARIABLES
 
-    var topics = ["Pan's Labyrinth","It", "Interstellar", "The Shape of Water", "Pulp Fiction", "Amelie", "Princess Mononoke", "I, Tonya", "Shrek"];
+    var topics = ["Pan's Labyrinth", "It", "Interstellar", "The Shape of Water", "Pulp Fiction", "Amelie", "Princess Mononoke", "I, Tonya", "Shrek"];
     console.log(topics);
 
 
@@ -30,7 +30,7 @@ $(document).ready(function () {
         var gifData = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
             gifData + "&api_key=kZm5kNYwT7ITf3OJuAtjyt6jeIb6MJkk&limit=10";
-        
+
 
         $.ajax({
             url: queryURL,
@@ -42,20 +42,20 @@ $(document).ready(function () {
 
             for (var i = 0; i < results.length; i++) {
                 var gifDiv = $("<div>");
-                gifDiv.addClass("float-left");
                 var rating = results[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
                 var image = $("<img>");
                 var addTitle = $("<p>").text(gifData);
-                image.attr("src", results[i].images.fixed_height_still.url).attr("data-still", results[i].images.fixed_height_still.url).attr("data-animate", results[i].images.fixed_height.url);
-                
+
+                image.attr("src", results[i].images.fixed_height_still.url).attr("data-still", results[i].images.fixed_height_still.url).attr("data-animate", results[i].images.fixed_height.url).attr("data-state", "still");
+                gifDiv.addClass("float-left");
                 gifDiv.append(p);
                 gifDiv.append(image);
 
                 // $("#topic-name").append(addTitle);
 
                 $("#display").prepend(gifDiv);
-                
+
             }
 
         })
@@ -65,9 +65,9 @@ $(document).ready(function () {
         console.log("click");
 
     })
-    
 
- 
+
+
 
     $(document).on("click", "#add-gif", function (event) {
         event.preventDefault();
@@ -81,9 +81,28 @@ $(document).ready(function () {
         newSearchItem.text(addSearchToArray);
         $("#buttons").prepend(newSearchItem);
 
-        
 
+
+    });
+
+    //Onclick animate gif 
+
+    $(document).on("click", "img", function () {
+
+
+        var state = $(this).attr("data-state");
+
+
+
+        if (state === 'still') {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", 'animate');
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", 'still');
+        }
     })
+
 
     // make each array item into a button and append that to the buttons div
     function addSearchItem() {

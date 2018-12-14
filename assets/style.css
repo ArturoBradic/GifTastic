@@ -1,40 +1,57 @@
 body {
-    background-color: white;
+    background-image: linear-gradient(to right top, #c1392d, #ab3f63, #99418d, #8d44ad);
+    height: 100%;
 }
 
 #menu-bar {
-    background-color: #95cb42;
-    height: 100vh;
+    background-color: #95cb42;  
+    margin-left: 1%; 
+    
+}
+
+#menu-title {
+    text-align: center;
 }
 
 #topic-name {
-    background-color: blue;
-    height: 100vh;
+    background-color;
 }
 
 #display {
-    background-color: yellow;
+    
+    height: 100vh; 
    
 }
 
 #film-reel {
     width: 200px;
-    
+    text-align: center;
+    margin: 0;
 }
+
 #inner-container {
     position: relative;
 }
+
 .display-4 {
-    
-    position: absolute; 
+    position: absolute center ; 
+    margin: 0;
     bottom: 0;
+    color: white;
+}
+
+#inner-container p {
+    color: white;
 }
 
 .jumbotron-fluid {
     margin: 0;
     padding: 10px;
+    text-align: center;
+    background: none;
+    border-bottom: 
   
-}
+}  
 
 .btn-dark {
     margin: 3px;
@@ -47,19 +64,13 @@ body {
 .text-center {
     color: white;
     padding: 0;
-}s
+} 
 
 #giphy {
     padding: 0;
 }
 
-/* #display img  {
-    display: inline;
-    float: left;
-    margin: 5px;
-}
-
-#display p  {
-    display: inline;
-    float: left;
-} */
+ #display img  {
+     margin: 5px;
+ }
+    

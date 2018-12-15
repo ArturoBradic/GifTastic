@@ -4,7 +4,7 @@ body {
 }
 
 #menu-bar {
-    background-color: #95cb42;  
+    background-image: linear-gradient(to right top, yellow, #95cb42);  
     margin-left: 3%; 
     
 }
